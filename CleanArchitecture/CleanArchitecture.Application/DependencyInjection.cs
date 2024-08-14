@@ -1,4 +1,5 @@
-﻿using FluentValidation;
+﻿using CleanArchitecture.Application.Behaviors;
+using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,11 @@ namespace CleanArchitecture.Application
             // mediatr configuration
             services.AddMediatR(configuration =>
             {
+                // assembly config for mediatr
                 configuration.RegisterServicesFromAssemblies(assembly);
+
+                // configure pipeline
+                configuration.AddOpenBehavior(typeof(RequestResponseLogginBehavior<,>));
             });
 
             // fluent validation configuration
