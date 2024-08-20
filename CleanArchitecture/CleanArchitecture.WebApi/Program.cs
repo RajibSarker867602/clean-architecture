@@ -1,21 +1,81 @@
 using CleanArchitecture.Application;
+using CleanArchitecture.Domain.Extensions;
+using CleanArchitecture.Domain.Filters;
 using CleanArchitecture.Infrastructure;
 using CleanArchitecture.Presentation;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Authorization;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// sesstion configurations
+builder.AddAppSession();
+// for caching
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
+// static appsettings contents
+builder.AddStaticAppSettingsContents();
+
+// NewtonsoftJson configurations
+builder.AddAppAddNewtonsoftJson();
+builder.Services.AddMvc(option =>
+{
+    option.MaxModelBindingCollectionSize = int.MaxValue;
+});
+
+// signalR configurations
+builder.AddAppSignalR();
+
+// model validation attribute reginstration
+builder.Services.Configure<ApiBehaviorOptions>(opt =>
+{
+    opt.SuppressModelStateInvalidFilter = true;
+});
+builder.Services.AddControllers()
+    .AddMvcOptions(options =>
+    {
+        // model validation filter register here
+        options.Filters.Add(typeof(ValidateModelFilter));
+    });
+
+// swagger authorizations
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.AddAppSwaggerGen();
 
-// service registration
+//CORS Policy
+builder.AddAppCORSPolicies();
+
+// Jwt token authentication enable
+builder.AddAppAuthentication();
+
+#region Route Gurd
+
+builder.Services.AddAuthorization(options =>
+{
+    options.FallbackPolicy = new AuthorizationPolicyBuilder()
+        .RequireAuthenticatedUser()
+        .Build();
+});
+builder.Services.AddControllers(config =>
+{
+    var policy = new AuthorizationPolicyBuilder()
+                     .RequireAuthenticatedUser()
+                     .Build();
+    config.Filters.Add(new AuthorizeFilter(policy));
+});
+
+#endregion Route Gurd
+
+// services registration
 builder.Services
     .AddApplication()
     .AddInfrastructure()
     .AddPresentation();
+
+
 
 
 

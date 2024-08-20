@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CleanArchitecture.Domain</name>
+    </assembly>
+    <members>
+        <member name="M:CleanArchitecture.Domain.Extensions.ApplicationBuilderExtension.AddAppCORSPolicies(Microsoft.AspNetCore.Builder.WebApplicationBuilder)">
+            <summary>
+            Enable application CORS policies
+            </summary>
+            <param name="builder"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CleanArchitecture.Domain.Extensions.ApplicationBuilderExtension.AddAppAuthentication(Microsoft.AspNetCore.Builder.WebApplicationBuilder)">
+            <summary>
+            Add application authenticaiton with Jwt Authentication
+            </summary>
+            <param name="builder"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CleanArchitecture.Domain.Extensions.ApplicationBuilderExtension.AddAppSwaggerGen(Microsoft.AspNetCore.Builder.WebApplicationBuilder)">
+            <summary>
+            Application swagger configurations
+            </summary>
+            <param name="builder"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CleanArchitecture.Domain.Extensions.ApplicationBuilderExtension.AddAppSignalR(Microsoft.AspNetCore.Builder.WebApplicationBuilder)">
+            <summary>
+            Application signalR configurations
+            </summary>
+            <param name="builder"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CleanArchitecture.Domain.Extensions.ApplicationBuilderExtension.AddAppAddNewtonsoftJson(Microsoft.AspNetCore.Builder.WebApplicationBuilder)">
+            <summary>
+            Configure application newtonsoftjson with filters
+            </summary>
+            <param name="builder"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CleanArchitecture.Domain.Extensions.ApplicationBuilderExtension.AddAppSession(Microsoft.AspNetCore.Builder.WebApplicationBuilder)">
+            <summary>
+            Configure application session
+            </summary>
+            <param name="builder"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CleanArchitecture.Domain.Extensions.ApplicationBuilderExtension.AddStaticAppSettingsContents(Microsoft.AspNetCore.Builder.WebApplicationBuilder)">
+            <summary>
+            Register static appsettings contents
+            </summary>
+            <param name="builder"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CleanArchitecture.Domain.Filters.ValidateModelFilter">
+            <summary>
+            Input Model validation error(s) handling
+            </summary>
+        </member>
+        <member name="T:CleanArchitecture.Domain.SwaggerConfigurations.ConfigureSwaggerOption">
+            <summary>
+            Swagger configuration
+            </summary>
+        </member>
+        <member name="T:CleanArchitecture.Domain.SwaggerConfigurations.SwaggerDefaultValue">
+            <summary>
+            Swagger default values
+            </summary>
+        </member>
+    </members>
+</doc>

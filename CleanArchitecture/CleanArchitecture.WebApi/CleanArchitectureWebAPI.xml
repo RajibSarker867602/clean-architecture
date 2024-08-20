@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CleanArchitecture.WebApi</name>
+    </assembly>
+    <members>
+        <member name="T:CleanArchitecture.WebApi.ExceptionHandlers.GlobalExceptionHandler">
+            <summary>
+            Handle all the exceptions
+            </summary>
+            <param name="logger"></param>
+        </member>
+        <member name="M:CleanArchitecture.WebApi.ExceptionHandlers.GlobalExceptionHandler.#ctor(Microsoft.Extensions.Logging.ILogger{CleanArchitecture.WebApi.ExceptionHandlers.GlobalExceptionHandler})">
+            <summary>
+            Handle all the exceptions
+            </summary>
+            <param name="logger"></param>
+        </member>
+    </members>
+</doc>
