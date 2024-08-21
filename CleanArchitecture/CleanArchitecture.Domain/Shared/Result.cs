@@ -14,7 +14,7 @@ public class Result
         Error = error;
     }
     public bool IsSuccess { get; }
-    public bool IsError => IsSuccess;
+    public bool IsFailure => !IsSuccess;
     public Error Error { get; set; }
     public static Result Success() => new(true, Error.None);
     public static Result<TValue> Success<TValue>(TValue value) => new(value, true, Error.None);

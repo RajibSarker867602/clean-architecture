@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Diagnostics;
+﻿using CleanArchitecture.Domain.Exceptions;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
@@ -43,6 +44,10 @@ namespace CleanArchitecture.WebApi.ExceptionHandlers
             switch (exception)
             {
                 //TODO: custom exceptions
+                case NotFoundException ex:
+                    code = (int) HttpStatusCode.NotFound;
+                    errorMessage = ex.Message ?? "Data not found at this time! Please try again later.";
+                    break;
 
                 case DbUpdateConcurrencyException:
                     code = (int)HttpStatusCode.Conflict;

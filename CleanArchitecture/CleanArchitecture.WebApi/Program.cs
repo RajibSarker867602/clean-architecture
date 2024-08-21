@@ -3,6 +3,7 @@ using CleanArchitecture.Domain.Extensions;
 using CleanArchitecture.Domain.Filters;
 using CleanArchitecture.Infrastructure;
 using CleanArchitecture.Presentation;
+using CleanArchitecture.WebApi.ExceptionHandlers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Authorization;
@@ -39,7 +40,7 @@ builder.Services.AddControllers()
     {
         // model validation filter register here
         options.Filters.Add(typeof(ValidateModelFilter));
-    });
+    }).AddApplicationPart(CleanArchitecture.Presentation.DependencyInjection.Assembly);
 
 // swagger authorizations
 builder.Services.AddEndpointsApiExplorer();
@@ -80,8 +81,8 @@ builder.Services
     .AddInfrastructure()
     .AddPresentation();
 
-
-
+// global exception handler
+builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 
 
 var app = builder.Build();
@@ -93,8 +94,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+app.UseExceptionHandler(opt => { });
 
+app.UseHttpsRedirection();
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
