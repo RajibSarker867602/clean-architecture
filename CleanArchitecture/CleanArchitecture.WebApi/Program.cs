@@ -69,6 +69,11 @@ builder.Services.AddControllers(config =>
 
 #endregion Route Gurd
 
+//TODO: mapster
+//TODO: fluent validation
+//TODO: serilog
+
+
 // services registration
 builder.Services
     .AddApplication()
