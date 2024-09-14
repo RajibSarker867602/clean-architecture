@@ -3,6 +3,7 @@ using CleanArchitecture.Domain.Extensions;
 using CleanArchitecture.Domain.Filters;
 using CleanArchitecture.Infrastructure;
 using CleanArchitecture.Presentation;
+using CleanArchitecture.Repositories;
 using CleanArchitecture.WebApi.ExceptionHandlers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -78,8 +79,9 @@ builder.Services.AddControllers(config =>
 // services registration
 builder.Services
     .AddApplication()
-    .AddInfrastructure()
-    .AddPresentation();
+    .AddInfrastructure(builder.Configuration)
+    .AddPresentation()
+    .AddRepositories();
 
 // global exception handler
 builder.Services.AddExceptionHandler<GlobalExceptionHandler>();

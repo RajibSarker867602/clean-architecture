@@ -21,6 +21,7 @@ namespace CleanArchitecture.Presentation.Controllers
         {
             _sender = sender;
         }
+
         [HttpPost]
         [AllowAnonymous]
         public async Task<IActionResult> Post([FromBody] CreateDepartmentCommand command)
