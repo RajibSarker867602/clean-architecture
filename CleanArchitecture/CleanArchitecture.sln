@@ -19,9 +19,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchitecture.Presentat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchitecture.WebApi", "CleanArchitecture.WebApi\CleanArchitecture.WebApi.csproj", "{DAA18622-4F6A-4333-B873-60172F3BC6F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.Repositories.Abstraction", "CleanArchitecture.Repositories.Abstraction\CleanArchitecture.Repositories.Abstraction.csproj", "{FF62755C-0302-4D1D-A28B-4466A0DC3B06}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchitecture.Repositories.Abstraction", "CleanArchitecture.Repositories.Abstraction\CleanArchitecture.Repositories.Abstraction.csproj", "{FF62755C-0302-4D1D-A28B-4466A0DC3B06}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.Repositories", "CleanArchitecture.Repositories\CleanArchitecture.Repositories.csproj", "{5DCE0102-8122-4943-86A9-4FF0269A6B55}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchitecture.Repositories", "CleanArchitecture.Repositories\CleanArchitecture.Repositories.csproj", "{5DCE0102-8122-4943-86A9-4FF0269A6B55}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{F67CCEB0-09D2-4FC3-9BD4-FFD53D1F4ADC}"
 EndProject
